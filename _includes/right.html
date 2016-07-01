@@ -1,0 +1,72 @@
+<div class="right" >
+    <section class="topspaceinfo">
+        
+        <embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" quality="high" bgcolor="#ffffff" width="160" height="70" name="honehoneclock" align="center" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+
+      </section>
+
+
+    <div class="cloud">
+      <h3>标签云</h3>
+      <ul>
+		{% for tag_cloud in site.data.contents.tag_clouds %}
+        <li><a href="#">{{ tag_cloud.ctag }}</a></li>
+		{% endfor %}
+        
+      </ul>
+    </div>
+
+          <div class="moreSelect" id="lp_right_select"> 
+      <script>
+window.onload = function ()
+{
+  var oLi = document.getElementById("tab").getElementsByTagName("li");
+  var oUl = document.getElementById("ms-main").getElementsByTagName("div");
+  
+  for(var i = 0; i < oLi.length; i++)
+  {
+    oLi[i].index = i;
+    oLi[i].onmouseover = function ()
+    {
+      for(var n = 0; n < oLi.length; n++) oLi[n].className="";
+      this.className = "cur";
+      for(var n = 0; n < oUl.length; n++) oUl[n].style.display = "none";
+      oUl[this.index].style.display = "block"
+    } 
+  }
+}
+</script>
+      <div class="ms-top">
+        <ul class="hd" id="tab">
+          <li class="cur"><a href="/">点击排行</a></li>
+          <li><a href="#">最新文章</a></li>
+          <li><a href="#">站长推荐</a></li>
+        </ul>
+      </div>
+      <div class="ms-main" id="ms-main">
+        <div style="display: block;" class="bd bd-news" >
+          <ul>
+			{% for click_ranking in site.data.contents.click_rankings %}
+            <li><a href="{{ click_ranking.article_url }}" target="_blank">{{ click_ranking.article_name }}</a></li>
+			{% endfor %}
+            
+          </ul>
+        </div>
+        <div  class="bd bd-news">
+          <ul>
+            {% for new_article in site.data.contents.new_articles %}
+            <li><a href="{{ new_article.article_url }}" target="_blank">{{ new_article.article_name }}</a></li>
+			{% endfor %}
+          </ul>
+        </div>
+        <div class="bd bd-news">
+          <ul>
+            {% for stationmaster_promote in site.data.contents.stationmaster_promotes %}
+            <li><a href="{{ stationmaster_promote.article_url }}" target="_blank">{{ stationmaster_promote.article_name }}</a></li>
+			{% endfor %}
+          </ul>
+        </div>
+      </div>
+      <!--ms-main end --> 
+    </div>
+ </div>

@@ -1,0 +1,77 @@
+---
+layout: post
+title:  "安装jekyll"
+date:   2016-06-22 10:27:13 +0800
+categories: jekyll update
+---
+# 安装jekyll
+
+在Ruby[官方网站](http://rubyinstaller.org/)下载ruby安装包[RubyInstaller](http://rubyinstaller.org/downloads/)和[DevKit安装文件](http://rubyinstaller.org/downloads/)
+##### 1. 安装ruby
+双击 rubyinstaller-2.3.0-x64.exe 即可，剩下的就是无脑下一步，注意可选择安装目录，同时可以勾选“Add Ruby executables to your PATH”，意思是将ruby添加到环境变量。最后点击“finish”，安装完成。
+###### 检查安装成功：
+win+R cmd进入命令提示符输入：
+
+```
+ruby -v
+```
+显示ruby版本信息及安装成功。
+##### 2. 安装devkit
+1.双击 DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe ，选择安装目录，无脑下一步。
+2.进入devkit安装目录创建config.yml
+win+r cmd 进入命令提示符输入：
+
+```
+ruby dk.rb init
+```
+初始化config.yml
+3.用记事本打开config.yml查看最后一行是否存在ruby的安装路径，像这样：
+
+```
+- E:/Licy_workplaces/Ruby23-x64
+```
+存在即可
+4.回到命令提示符 界面，输入
+
+```
+ruby dk.rb review
+ruby dk.rb install
+```
+##### 3.安装jekyll
+接着在命令提示符中输入：
+
+```
+gem -v
+```
+会显示gem 的版本，如： ”2.5.1“
+接着输入：
+
+```
+gem install jekyll
+```
+等待片刻后即可。
+输入:
+
+```
+jekyll -v
+```
+
+显示版本如”jekyll 3.1.6“及安装完毕
+
+##### 4.启动jekyll
+输入：
+
+```
+jekyll new myblog  #在当前目录创建myblog项目
+```
+之后进入该项目:
+
+```
+cd myblog
+```
+启动myblog项目
+
+```
+jekyll serve #启动该目录的项目
+```
+在浏览器中输入http://localhost:4000就可以看到默认的myblog 的样子了。
